@@ -75,6 +75,10 @@
       cursor: pointer;
     }
 
+    output {
+      word-break: break-all;
+    }
+
     footer {
       margin-block-start: auto;
       margin-block-end: 16px;
@@ -137,7 +141,7 @@
       const b64 = await textToGzipBase64(content);
 
       const url = `${location.origin}/#${b64}`;
-      e.target.elements['url'].innerHTML = `<a href="${url}">${url}</a>`;
+      e.target.elements['url'].innerHTML = `<a href="${url}">${url.substring(0, 60)}${url.length > 60 ? '...' : ''}</a>`;
     });
   </script>
 </body>
