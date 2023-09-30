@@ -102,7 +102,7 @@
   </style>
 </head>
 
-<body>
+<body style="display: none">
   <header>
     <h1>zip-page</h1>
   </header>
@@ -143,6 +143,11 @@
       const url = `${location.origin}/#${b64}`;
       e.target.elements['url'].innerHTML = `<a href="${url}">${url.substring(0, 60)}${url.length > 60 ? '...' : ''}</a>`;
     });
+
+    // Blocks flash of original UI before document.write in the header script executes
+    if (location.hash === '') {
+      document.querySelector('body').style.setProperty('display', '');
+    }
   </script>
 </body>
 
