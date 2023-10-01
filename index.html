@@ -144,6 +144,14 @@
       e.target.elements['url'].innerHTML = `<a href="${url}">${url.substring(0, 60)}${url.length > 60 ? '...' : ''}</a>`;
     });
 
+    addEventListener('hashchange', e => {
+      gzipBase64ToText(new URL(e.newURL).hash.substring(1)).then(html => {
+        document.open();
+        document.write(html);
+        document.close();
+      });
+    });
+
     // Blocks flash of original UI before document.write in the header script executes
     if (location.hash === '') {
       document.querySelector('body').style.setProperty('display', '');
