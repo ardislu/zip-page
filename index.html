@@ -145,7 +145,7 @@
       const content = new FormData(e.target).get('content');
       const b64 = await textToGzipBase64(content);
 
-      const url = `${location.origin}/#${b64}`;
+      const url = `${location.href}#${b64}`;
       e.target.elements['url'].innerHTML = `<a href="${url}">${url.substring(0, 60)}${url.length > 60 ? '...' : ''}</a>`;
     });
 
