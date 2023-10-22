@@ -44,3 +44,4 @@ Uses the [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/
 - [Netlify Drop](https://app.netlify.com/drop)
 - [Surge](https://surge.sh/)
 - [Instant Preview](https://github.com/kjk/instaprev)
+- [NoPaste](https://github.com/bokub/nopaste)
