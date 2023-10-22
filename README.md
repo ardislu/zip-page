@@ -39,6 +39,16 @@ Uses the [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/
 
 ![Web browser displaying the zip-page](./.github/zip-page.png)
 
+## Maximum content size
+
+The maximum size of content you can store using this tool will depend on:
+- How well the `gzip` algorithm compresses the content
+- The end-user's specific hardware/web browser
+
+From my basic testing I found the rough limits to be around:
+- **~500 kB** of uncompressed content, or
+- **~500,000 characters** of URL length
+
 ## Similar projects
 
 - [Netlify Drop](https://app.netlify.com/drop)
