@@ -11,7 +11,7 @@
   <meta property="og:url" content="https://z.ard.is/">
   <link rel="icon" href="data:,">
   <title>zip-page</title>
-  <script>
+  <script blocking="render">
     async function gzipBase64ToText(b64) {
       const encoded = atob(b64);
       const buffer = Uint8Array.from(encoded, c => c.charCodeAt(0));
