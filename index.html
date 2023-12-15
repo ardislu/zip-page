@@ -28,83 +28,14 @@
         document.close();
       });
     }
+    else {
+      import('/script.js');
+      const link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = '/style.css';
+      document.head.appendChild(link);
+    }
   </script>
-  <style>
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-      color: hsl(216deg 50% 10%);
-      background: hsl(216deg 50% 95%);
-      block-size: 100dvh;
-      margin: 0;
-    }
-
-    body,
-    form {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-
-    header,
-    main {
-      display: flex;
-      justify-content: center;
-      inline-size: min(100% - 16px, 720px);
-      margin-inline: auto;
-    }
-
-    form {
-      inline-size: 100%;
-      gap: 16px;
-    }
-
-    textarea,
-    button {
-      padding: 8px;
-      border-radius: 8px;
-      border: 1px solid hsl(216deg 50% 60%);
-      font-size: 1rem;
-    }
-
-    textarea {
-      font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
-      box-sizing: border-box;
-      min-inline-size: min(100%, 720px);
-      min-block-size: 40ch;
-      white-space: nowrap;
-    }
-
-    button {
-      inline-size: fit-content;
-      padding: 4px 8px;
-      cursor: pointer;
-    }
-
-    output {
-      word-break: break-all;
-    }
-
-    footer {
-      margin-block-start: auto;
-      margin-block-end: 16px;
-    }
-
-    a {
-      text-decoration: none;
-      font-weight: 700;
-      color: hsl(216deg 50% 50%);
-    }
-
-    .visually-hidden {
-      clip: rect(0 0 0 0);
-      clip-path: inset(50%);
-      height: 1px;
-      overflow: hidden;
-      position: absolute;
-      white-space: nowrap;
-      width: 1px;
-    }
-  </style>
 </head>
 
 <body style="display: none">
@@ -127,41 +58,6 @@
   <footer>
     <a href="https://github.com/ardislu/zip-page">GitHub</a>
   </footer>
-
-  <script type="module">
-    async function textToGzipBase64(text) {
-      const stream = new Blob([text]).stream();
-      const compressed = stream.pipeThrough(new CompressionStream('gzip'));
-      const buffer = new Uint8Array(await new Response(compressed).arrayBuffer());
-      let encoded = '';
-      buffer.forEach(byte => encoded += String.fromCharCode(byte));
-      const b64 = btoa(encoded);
-      return b64;
-    }
-
-    document.querySelector('form').addEventListener('submit', async e => {
-      e.preventDefault();
-
-      const content = new FormData(e.target).get('content');
-      const b64 = await textToGzipBase64(content);
-
-      const url = `${location.href}#${b64}`;
-      e.target.elements['url'].innerHTML = `<a href="${url}">${url.substring(0, 60)}${url.length > 60 ? '...' : ''}</a>`;
-    });
-
-    addEventListener('hashchange', e => {
-      gzipBase64ToText(new URL(e.newURL).hash.substring(1)).then(html => {
-        document.open();
-        document.write(html);
-        document.close();
-      });
-    });
-
-    // Blocks flash of original UI before document.write in the header script executes
-    if (location.hash === '') {
-      document.querySelector('body').style.setProperty('display', '');
-    }
-  </script>
 </body>
 
 </html>

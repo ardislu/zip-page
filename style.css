@@ -1,0 +1,74 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  color: hsl(216deg 50% 10%);
+  background: hsl(216deg 50% 95%);
+  block-size: 100dvh;
+  margin: 0;
+}
+
+body,
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header,
+main {
+  display: flex;
+  justify-content: center;
+  inline-size: min(100% - 16px, 720px);
+  margin-inline: auto;
+}
+
+form {
+  inline-size: 100%;
+  gap: 16px;
+}
+
+textarea,
+button {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid hsl(216deg 50% 60%);
+  font-size: 1rem;
+}
+
+textarea {
+  font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+  box-sizing: border-box;
+  min-inline-size: min(100%, 720px);
+  min-block-size: 40ch;
+  white-space: nowrap;
+}
+
+button {
+  inline-size: fit-content;
+  padding: 4px 8px;
+  cursor: pointer;
+}
+
+output {
+  word-break: break-all;
+}
+
+footer {
+  margin-block-start: auto;
+  margin-block-end: 16px;
+}
+
+a {
+  text-decoration: none;
+  font-weight: 700;
+  color: hsl(216deg 50% 50%);
+}
+
+.visually-hidden {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
