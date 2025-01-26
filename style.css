@@ -1,5 +1,5 @@
 body {
-  font-family: -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+  font-family: system-ui, sans-serif;
   color: hsl(216deg 50% 10%);
   background: hsl(216deg 50% 95%);
   block-size: 100dvh;
@@ -35,7 +35,7 @@ button {
 }
 
 textarea {
-  font-family: Menlo, Consolas, Monaco, Liberation Mono, Lucida Console, monospace;
+  font-family: ui-monospace, monospace;
   box-sizing: border-box;
   min-inline-size: min(100%, 720px);
   min-block-size: 40ch;
