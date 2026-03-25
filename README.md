@@ -4,6 +4,8 @@ Minimal utility for zipping entire web pages into a URL.
 
 Uses the [Compression Streams API](https://developer.mozilla.org/en-US/docs/Web/API/Compression_Streams_API) for `gzip`.
 
+Code repository mirrors: [GitHub](https://github.com/ardislu/zip-page), [Codeberg](https://codeberg.org/ardislu/zip-page), [git.ardis.lu](https://git.ardis.lu/zip-page)
+
 ## Example usage
 
 1. Copy the HTML for a web page you want to share:
