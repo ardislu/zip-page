@@ -1,11 +1,8 @@
 async function textToGzipBase64(text) {
   const stream = new Blob([text]).stream();
   const compressed = stream.pipeThrough(new CompressionStream('gzip'));
-  const buffer = new Uint8Array(await new Response(compressed).arrayBuffer());
-  let encoded = '';
-  buffer.forEach(byte => encoded += String.fromCharCode(byte));
-  const b64 = btoa(encoded);
-  return b64;
+  const buffer = await new Response(compressed).bytes();
+  return buffer.toBase64();
 }
 
 document.querySelector('form').addEventListener('submit', async e => {
